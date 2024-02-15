@@ -10,6 +10,7 @@ const PlayerContainer = () => {
       <div className="music-details">
         <h3 className="music-name">Another Love</h3>
         <p className="music-artist">Tom Odell</p>
+        <audio></audio>
       </div>
 
       <div className="player-controls">
