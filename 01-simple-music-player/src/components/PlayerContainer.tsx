@@ -2,7 +2,7 @@ const PlayerContainer = () => {
   return (
     <div className="player-container">
       <h2>Now Playing</h2>
-
+      <audio></audio>
       <div className="music-image">
         <img src="https://picsum.photos/200" alt="music" />
       </div>
@@ -10,7 +10,6 @@ const PlayerContainer = () => {
       <div className="music-details">
         <h3 className="music-name">Another Love</h3>
         <p className="music-artist">Tom Odell</p>
-        <audio></audio>
       </div>
 
       <div className="player-controls">
