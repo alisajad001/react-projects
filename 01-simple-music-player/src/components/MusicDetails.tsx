@@ -1,7 +1,7 @@
-const MusicDetails = ({ music }) => {
+const MusicDetails = ({ music, isPlaying }) => {
   return (
     <div>
-      <div className="music-image">
+      <div className={isPlaying ? "music-image playing" : "music-image"}>
         <img src={music.image} alt="music" />
       </div>
 

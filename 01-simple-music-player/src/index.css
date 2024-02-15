@@ -48,8 +48,11 @@ audio {
   border: 3px solid #f03b59;
   box-shadow: 0 0 5rem #f03b5980;
   padding: 0.3em;
-  animation: spin 15s linear infinite;
   position: relative;
+}
+
+.music-image.playing {
+  animation: spin 15s linear infinite;
 }
 
 .player-container .music-image::before {
