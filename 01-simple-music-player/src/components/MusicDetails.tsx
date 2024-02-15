@@ -1,13 +1,13 @@
-const MusicDetails = () => {
+const MusicDetails = ({ music }) => {
   return (
     <div>
       <div className="music-image">
-        <img src="https://picsum.photos/200" alt="music" />
+        <img src={music.image} alt="music" />
       </div>
 
       <div className="music-details">
-        <h3 className="music-name">Another Love</h3>
-        <p className="music-artist">Tom Odell</p>
+        <h3 className="music-name">{music.name}</h3>
+        <p className="music-artist">{music.artist}l</p>
       </div>
     </div>
   );

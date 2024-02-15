@@ -44,7 +44,7 @@ const PlayerContainer = () => {
         ref={audioRef}
       />
 
-      <MusicDetails />
+      <MusicDetails music={musics[currentMusic]} />
       <PlayerControls
         isPlaying={isPlaying}
         togglePlay={togglePlay}
