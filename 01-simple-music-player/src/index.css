@@ -25,7 +25,7 @@ img {
   height: 500px;
   padding: 1.5em;
   width: 100%;
-  background-color: #fff8f9;
+  background: linear-gradient(to bottom left, #ffffff, #ffc6d0c2);
   border-radius: 1.5rem;
   margin: auto;
   overflow: hidden;
