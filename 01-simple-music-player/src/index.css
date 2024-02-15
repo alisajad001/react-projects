@@ -19,6 +19,10 @@ img {
   background-color: #f03b59;
 }
 
+audio {
+  display: none;
+}
+
 /* Music Player Card */
 .player-container {
   max-width: 340px;
