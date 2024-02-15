@@ -20,6 +20,7 @@ const PlayerContainer = () => {
 
   const nextMusic = () => {
     if (currentMusic < 2) {
+      setIsPlaying(true);
       setCurrentMusic(currentMusic + 1);
     } else {
       setCurrentMusic(0);
@@ -30,6 +31,7 @@ const PlayerContainer = () => {
     if (currentMusic > 0) {
       setCurrentMusic(currentMusic - 1);
     } else {
+      setIsPlaying(true);
       setCurrentMusic(2);
     }
   };
