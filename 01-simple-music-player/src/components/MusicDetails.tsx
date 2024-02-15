@@ -8,6 +8,7 @@ const MusicDetails = ({ music }) => {
       <div className="music-details">
         <h3 className="music-name">{music.name}</h3>
         <p className="music-artist">{music.artist}l</p>
+        <span className="music-duration">{music.duration}</span>
       </div>
     </div>
   );
