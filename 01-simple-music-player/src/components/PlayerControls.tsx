@@ -1,9 +1,28 @@
-const PlayerControls = ({ isPlaying, togglePlay, nextMusic, prevMusic }) => {
+import { useEffect, useState } from "react";
+
+const PlayerControls = ({
+  isPlaying,
+  togglePlay,
+  nextMusic,
+  prevMusic,
+  audioRef,
+}) => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (isPlaying) {
+      const interval = setInterval(() => {
+        setProgress(audioRef.current.currentTime / audioRef.current.duration);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [isPlaying, audioRef]);
+
   return (
     <div className="player-controls">
       <div className="progress-bars">
         <div className="bar-1"></div>
-        <div className="bar-2"></div>
+        <div className="bar-2" style={{ width: `${progress * 100}%` }}></div>
       </div>
 
       <div className="buttons">

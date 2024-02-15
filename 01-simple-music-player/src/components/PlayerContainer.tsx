@@ -50,6 +50,7 @@ const PlayerContainer = () => {
         togglePlay={togglePlay}
         nextMusic={nextMusic}
         prevMusic={prevMusic}
+        audioRef={audioRef}
       />
     </div>
   );
