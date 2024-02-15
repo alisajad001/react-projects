@@ -7,12 +7,19 @@
   font-family: "Raleway", sans-serif;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .App {
   display: flex;
   height: 100vh;
   background-color: #f03b59;
 }
 
+/* Music Player Card */
 .player-container {
   max-width: 340px;
   height: 500px;
@@ -21,9 +28,49 @@
   background-color: #fff8f9;
   border-radius: 1.5rem;
   margin: auto;
+  overflow: hidden;
 }
 
 .player-container h2 {
   color: #f03b59;
   text-align: center;
+}
+
+.player-container .music-image {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 2em auto;
+  border: 3px solid #f03b59;
+  box-shadow: 0 0 5rem #f03b5980;
+  padding: 0.3em;
+  animation: spin 15s linear infinite;
+  position: relative;
+}
+
+.player-container .music-image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #f03b59;
+  opacity: 0.3;
+  z-index: -1;
+  border-radius: 50%;
+  animation: spin 5s linear infinite;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.player-container .music-image img {
+  border-radius: 50%;
+}
+
+/* Animations & Transitions */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
