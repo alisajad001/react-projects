@@ -10,9 +10,20 @@
 .App {
   display: flex;
   height: 100vh;
+  background-color: #f03b59;
 }
 
 .player-container {
   max-width: 340px;
+  height: 500px;
+  padding: 1.5em;
+  width: 100%;
+  background-color: #fff8f9;
+  border-radius: 1.5rem;
   margin: auto;
+}
+
+.player-container h2 {
+  color: #f03b59;
+  text-align: center;
 }
