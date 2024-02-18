@@ -24,6 +24,11 @@ body {
   margin-top: 0.5rem;
 }
 
+.active {
+  border-top: 5px solid #1c90ad;
+  color: #1c90ad;
+}
+
 .accordion-title {
   display: flex;
   align-items: center;
@@ -37,7 +42,6 @@ body {
 }
 
 .accordion-title h2 {
-  color: #353535;
   font-weight: 500;
   font-size: 1.5rem;
 }
@@ -47,10 +51,9 @@ body {
 }
 
 .accordion-content {
-  margin-top: 1.5em;
   line-height: 1.4;
   color: #919191;
   font-size: 1.1rem;
   padding: 0 1.5em;
-  display: none;
+  margin-top: 1em;
 }
