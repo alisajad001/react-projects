@@ -1,5 +1,14 @@
+import Accordion from "./Accordion";
+
 function App() {
-  return <div>Hello World</div>;
+  return (
+    <>
+      <Accordion />
+      <Accordion />
+      <Accordion />
+      <Accordion />
+    </>
+  );
 }
 
 export default App;
