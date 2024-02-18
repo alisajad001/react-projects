@@ -15,8 +15,11 @@ const Accordion = ({ title, content, selected, id, onSelect }) => {
           }
         ></i>
       </div>
-      <div className="accordion-content">
-        {selected === id ? content : null}
+      <div
+        className="accordion-content"
+        style={{ display: selected === id ? "block" : "none" }}
+      >
+        {content}
       </div>
     </div>
   );
