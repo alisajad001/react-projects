@@ -1,20 +1,20 @@
-import { useState, useRef } from "react";
-import MusicDetails from "./MusicDetails";
-import PlayerControls from "./PlayerControls";
-import musics from "../data";
+import { useState, useRef } from 'react';
+import MusicDetails from './MusicDetails';
+import PlayerControls from './PlayerControls';
+import musics from '../data';
 
 const PlayerContainer = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentMusic, setCurrentMusic] = useState(0);
-  const audioRef = useRef();
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [currentMusic, setCurrentMusic] = useState<number>(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
     if (isPlaying) {
       setIsPlaying(false);
-      audioRef.current.pause();
+      if (audioRef.current) audioRef.current.pause();
     } else {
       setIsPlaying(true);
-      audioRef.current.play();
+      if (audioRef.current) audioRef.current.play();
     }
   };
 
