@@ -1,5 +1,7 @@
+import GameContainer from './components/GameContainer';
+
 const App = () => {
-  return <div>Hello World</div>;
+  return <GameContainer />;
 };
 
 export default App;
