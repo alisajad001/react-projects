@@ -20,7 +20,9 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
   useEffect(() => {
     if (isPlaying && audioRef.current) {
       const interval = setInterval(() => {
-        setProgress(audioRef.current.currentTime / audioRef.current.duration);
+        if (audioRef.current) {
+          setProgress(audioRef.current.currentTime / audioRef.current.duration);
+        }
       }, 1000);
       return () => clearInterval(interval);
     }
