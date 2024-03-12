@@ -2,22 +2,30 @@ import { useEffect, useState } from 'react';
 import Product from './components/Product';
 import LoadMoreBtn from './components/LoadMoreBtn';
 
-const API = 'https://dummyjson.com/products';
+const API = 'https://dummyjson.com/products?limit=20&skip=';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
-  const [visibleProducts, setVisibleProducts] = useState(8);
+  const [visibleProducts, setVisibleProducts] = useState(0);
 
   // Fetch data
   const fetchProducts = async () => {
-    setIsLoading(true);
     try {
-      const res = await fetch(API);
+      setIsLoading(true);
+
+      const res = await fetch(
+        `${API}${visibleProducts === 0 ? 0 : visibleProducts * 20}`,
+      );
+
       const data = await res.json();
 
+      if (data && data.products && data.products.length) {
+        setProducts((prevData) => [...prevData, ...data.products]);
+      }
+
       setIsLoading(false);
-      setProducts(data.products);
+      console.log(data);
     } catch (error) {
       console.log(error.message);
     }
@@ -25,12 +33,12 @@ const App = () => {
 
   // Hnadle load more click
   const handleLoadMore = () => {
-    setVisibleProducts((prev) => prev + 8);
+    setVisibleProducts(visibleProducts + 1);
   };
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [visibleProducts]);
   return (
     <main>
       <h1>High Quality Cheap Products</h1>
@@ -40,14 +48,14 @@ const App = () => {
         {isLoading ? (
           <span>Loading...</span>
         ) : (
-          products.slice(0, visibleProducts).map((product) => {
+          products &&
+          products.length &&
+          products.map((product) => {
             return <Product key={product.id} {...product} />;
           })
         )}
 
-        {products.length > visibleProducts && (
-          <LoadMoreBtn onClick={handleLoadMore} />
-        )}
+        <LoadMoreBtn onClick={handleLoadMore} />
       </div>
     </main>
   );
