@@ -44,6 +44,14 @@ p {
   border-radius: 0.5rem;
   padding: 0.7em;
   border: 1px solid #cecece;
+  display: grid;
+  flex-direction: column;
+}
+
+.product-box .product-img {
+  height: 150px;
+  display: block;
+  margin: 0 auto;
 }
 
 .product-box .product-name {
@@ -64,6 +72,8 @@ p {
 .product-box .product-price {
   display: flex;
   gap: 0.3rem;
+  align-self: flex-end;
+  margin-bottom: 10px;
 }
 
 .product-box .product-price span {
@@ -79,7 +89,6 @@ p {
 .add-btn {
   width: 100%;
   padding: 0.6em 0;
-  margin-top: 1em;
   border: 0;
   background-color: #3bd850;
   border-radius: 0.3em;
@@ -87,4 +96,6 @@ p {
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
+  justify-self: flex-end;
+  align-self: flex-end;
 }
