@@ -1,16 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Product from './components/Product';
+
+const API = 'https://dummyjson.com/products';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
 
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch(API);
+      const data = await res.json();
+
+      setProducts(data.products);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   return (
     <main>
       <h1>High Quality Cheap Products</h1>
       <p>Find high quality and cheap products of your choice.</p>
 
-      <div className="products-container"></div>
+      <div className="products-container">
+        {products &&
+          products.map((product) => {
+            return <Product key={product.id} {...product} />;
+          })}
+      </div>
     </main>
   );
 };
