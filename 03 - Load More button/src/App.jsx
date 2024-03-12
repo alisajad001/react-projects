@@ -8,10 +8,12 @@ const App = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
+    setIsLoading(true);
     try {
       const res = await fetch(API);
       const data = await res.json();
 
+      setIsLoading(false);
       setProducts(data.products);
     } catch (error) {
       console.log(error.message);
@@ -27,10 +29,13 @@ const App = () => {
       <p>Find high quality and cheap products of your choice.</p>
 
       <div className="products-container">
-        {products &&
+        {isLoading ? (
+          <span>Loading...</span>
+        ) : (
           products.map((product) => {
             return <Product key={product.id} {...product} />;
-          })}
+          })
+        )}
       </div>
     </main>
   );
