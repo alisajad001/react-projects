@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import Product from './components/Product';
+import LoadMoreBtn from './components/LoadMoreBtn';
 
 const API = 'https://dummyjson.com/products';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [visibleProducts, setVisibleProducts] = useState(8);
 
+  // Fetch data
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
@@ -18,6 +21,11 @@ const App = () => {
     } catch (error) {
       console.log(error.message);
     }
+  };
+
+  // Hnadle load more click
+  const handleLoadMore = () => {
+    setVisibleProducts((prev) => prev + 8);
   };
 
   useEffect(() => {
@@ -32,9 +40,13 @@ const App = () => {
         {isLoading ? (
           <span>Loading...</span>
         ) : (
-          products.map((product) => {
+          products.slice(0, visibleProducts).map((product) => {
             return <Product key={product.id} {...product} />;
           })
+        )}
+
+        {products.length > visibleProducts && (
+          <LoadMoreBtn onClick={handleLoadMore} />
         )}
       </div>
     </main>
