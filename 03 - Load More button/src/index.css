@@ -86,6 +86,8 @@ p {
   color: #f07f7f;
 }
 
+/* Buttons */
+
 .add-btn {
   width: 100%;
   padding: 0.6em 0;
@@ -98,4 +100,13 @@ p {
   cursor: pointer;
   justify-self: flex-end;
   align-self: flex-end;
+}
+
+.load-more-btn {
+  padding: 1em 3em;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  background-color: orangered;
+  cursor: pointer;
 }
