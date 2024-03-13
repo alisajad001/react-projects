@@ -5,6 +5,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [isError, setIsError] = useState(false);
+  const [scrollPercentage, setScrollPercentage] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -21,19 +22,39 @@ const App = () => {
     }
   };
 
+  // Fetch Data
   useEffect(() => {
     fetchData();
+  }, []);
+
+  const handleScroll = () => {
+    const scrollWidth =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    const maxHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    setScrollPercentage((scrollWidth / maxHeight) * 100);
+  };
+
+  // Handle scroll
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', () => {});
+    };
   }, []);
 
   return (
     <>
       <header>
         <h1>Scroll Indicator Project</h1>
+        <ScrollIndicator scrollPercentage={scrollPercentage} />
       </header>
 
-      <ScrollIndicator />
-
-      <section>
+      <section className="products-container">
         {/* Hnadle Loading and Error */}
         {isLoading && <p>Loading...</p>}
         {isError && <p>Error {isError}</p>}
