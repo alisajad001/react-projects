@@ -60,7 +60,17 @@ const App = () => {
         {isError && <p>Error {isError}</p>}
 
         {data.map((item) => {
-          return <p key={item.id}>{item.title}</p>;
+          return (
+            <div>
+              <img
+                src={item.thumbnail}
+                alt="Product Image"
+                width="300"
+                height="200"
+              />
+              <p key={item.id}>{item.title}</p>
+            </div>
+          );
         })}
       </section>
     </>

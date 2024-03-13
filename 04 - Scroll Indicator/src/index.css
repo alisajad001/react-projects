@@ -5,6 +5,13 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+img {
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 1em;
+}
+
 header {
   background-color: #0c1ba1;
   color: #fff;
@@ -26,7 +33,9 @@ header {
 
 p {
   text-align: center;
-  margin: 1em 0;
+  font-size: 2em;
+  margin-bottom: 2em;
+  font-weight: bold;
 }
 
 .products-container {
