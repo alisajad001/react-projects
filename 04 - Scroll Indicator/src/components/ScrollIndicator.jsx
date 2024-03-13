@@ -1,5 +1,10 @@
-const ScrollIndicator = () => {
-  return <div className="scroll-indicator"></div>;
+const ScrollIndicator = ({ scrollPercentage }) => {
+  return (
+    <div
+      className="scroll-indicator"
+      style={{ width: `${scrollPercentage}%` }}
+    ></div>
+  );
 };
 
 export default ScrollIndicator;
