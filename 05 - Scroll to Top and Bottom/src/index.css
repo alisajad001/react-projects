@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 500px;
+  width: calc(100vw - 1em);
+  margin: 2em auto;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1em;
+}
+
+p {
+  margin-top: 1em;
+}
+
+button {
+  padding: 0.6em 2em;
+  margin: 1em 0;
+}
