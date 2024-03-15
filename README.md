@@ -4,3 +4,4 @@
 - 02 - Accordion
 - 03 - Load More button
 - 04 - Scroll Indicator
+- 05 - Scroll to Top and Bottom
