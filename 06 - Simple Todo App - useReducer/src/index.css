@@ -13,6 +13,10 @@ body {
   padding-top: 5rem;
 }
 
+.app {
+  max-width: 350px;
+}
+
 p {
   color: #696969;
   max-width: 400px;
@@ -27,7 +31,7 @@ form {
 }
 
 form input {
-  width: 300px;
+  width: 350px;
   padding: 0.7rem;
   border: 1px solid #c5c5c5;
   background-color: #e2e2e2;
@@ -47,4 +51,20 @@ form button {
 
 form button:hover {
   background-color: rgb(221, 144, 0);
+}
+
+.todos-head {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.todo-list {
+  padding-left: 2rem;
+}
+
+.todo-list li {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: left;
 }
