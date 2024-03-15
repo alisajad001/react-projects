@@ -31,7 +31,12 @@ function App() {
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    dispatch({ type: 'ADD_ITEM', payload: state.todoTitle });
+    if (state.todoTitle === '') {
+      alert('Please add a title');
+    } else {
+      dispatch({ type: 'ADD_ITEM', payload: state.todoTitle });
+    }
+
     state.todoTitle = '';
   }
 
