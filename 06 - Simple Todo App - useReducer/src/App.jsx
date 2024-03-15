@@ -17,6 +17,8 @@ function reducer(state, action) {
         ...state,
         todos: state.todos.filter((todo) => todo !== action.payload),
       };
+    case 'RESET_LIST':
+      return (state = initialState);
     default:
       throw new Error('Action unknown');
   }
@@ -70,7 +72,12 @@ function App() {
           );
         })}
       </ul>
-      <button className="clear-all-btn">Clear All</button>
+      <button
+        className="clear-all-btn"
+        onClick={() => dispatch({ type: 'RESET_LIST' })}
+      >
+        Clear All
+      </button>
     </div>
   );
 }
