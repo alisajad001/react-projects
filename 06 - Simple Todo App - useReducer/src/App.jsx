@@ -1,4 +1,6 @@
 import { useReducer } from 'react';
+import Form from './components/Form';
+import TodoList from './components/TodoList';
 
 const initialState = {
   todoTitle: '',
@@ -27,56 +29,18 @@ function reducer(state, action) {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Handle on submit
-  function handleOnSubmit(e) {
-    e.preventDefault();
-
-    if (state.todoTitle === '') {
-      alert('Please add a title');
-    } else {
-      dispatch({ type: 'ADD_ITEM', payload: state.todoTitle });
-    }
-
-    state.todoTitle = '';
-  }
-
   return (
     <div className="app">
       <h1>Simple Todo App</h1>
       <p>A simple Todo App using useReducer hook for state management</p>
-      <form id="form" onSubmit={handleOnSubmit}>
-        <input
-          type="text"
-          placeholder="title..."
-          value={state.todoTitle}
-          onChange={(e) => dispatch({ type: 'query', payload: e.target.value })}
-        />
-        <button type="submit">Add</button>
-      </form>
+
+      {/* Form */}
+      <Form state={state} dispatch={dispatch} />
 
       {/* Todo List */}
-      <div className="todos-head">
-        <h2>Tasks</h2>
-        <p>
-          {state.todos?.length} {state.todos?.length === 1 ? 'todo' : 'todos'}
-        </p>
-      </div>
+      <TodoList state={state} dispatch={dispatch} />
 
-      <ul className="todo-list">
-        {state.todos?.map((todo) => {
-          return (
-            <li key={todo}>
-              {todo}{' '}
-              <span
-                className="remove-icon"
-                onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: todo })}
-              >
-                &times;
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+      {/* Clear All Button */}
       <button
         className="clear-all-btn"
         onClick={() => dispatch({ type: 'RESET_LIST' })}
