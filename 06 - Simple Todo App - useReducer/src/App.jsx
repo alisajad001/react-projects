@@ -70,6 +70,7 @@ function App() {
           );
         })}
       </ul>
+      <button className="clear-all-btn">Clear All</button>
     </div>
   );
 }
