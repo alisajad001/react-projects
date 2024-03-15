@@ -12,9 +12,11 @@ function reducer(state, action) {
       return { ...state, todoTitle: action.payload };
     case 'ADD_ITEM':
       return { ...state, todos: [...state.todos, action.payload] };
-    // case 'REMOVE_ITEM':
-    //   return;
-
+    case 'REMOVE_ITEM':
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo !== action.payload),
+      };
     default:
       throw new Error('Action unknown');
   }
@@ -52,9 +54,20 @@ function App() {
           {state.todos?.length} {state.todos?.length === 1 ? 'todo' : 'todos'}
         </p>
       </div>
+
       <ul className="todo-list">
         {state.todos?.map((todo) => {
-          return <li key={todo}>{todo}</li>;
+          return (
+            <li key={todo}>
+              {todo}{' '}
+              <span
+                className="remove-icon"
+                onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: todo })}
+              >
+                &times;
+              </span>
+            </li>
+          );
         })}
       </ul>
     </div>
