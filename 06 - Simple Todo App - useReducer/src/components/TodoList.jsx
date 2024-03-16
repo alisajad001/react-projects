@@ -1,23 +1,29 @@
 import React from 'react';
+import { ACTIONS } from '../App';
 
-function TodoList({ state, dispatch }) {
+function TodoList({ todos, dispatch }) {
   return (
     <div className="todo-list">
       <div className="todos-head">
         <h2>Tasks</h2>
         <p>
-          {state.todos?.length} {state.todos?.length === 1 ? 'todo' : 'todos'}
+          {todos?.length} {todos?.length === 1 ? 'todo' : 'todos'}
         </p>
       </div>
 
       <ul className="todo-list">
-        {state.todos?.map((todo) => {
+        {todos.map((todo) => {
           return (
-            <li key={todo}>
-              {todo}{' '}
+            <li key={todo.id}>
+              {todo.name}{' '}
               <span
                 className="remove-icon"
-                onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: todo })}
+                onClick={() =>
+                  dispatch({
+                    type: ACTIONS.REMOVE_TODO,
+                    payload: { id: todo.id },
+                  })
+                }
               >
                 &times;
               </span>
