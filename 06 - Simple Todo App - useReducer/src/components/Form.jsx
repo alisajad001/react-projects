@@ -1,15 +1,19 @@
-function Form({ state, dispatch }) {
+import { useState } from 'react';
+import { ACTIONS } from '../App';
+
+function Form({ dispatch }) {
+  const [name, setName] = useState('');
+
   // Handle on submit
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    if (state.todoTitle === '') {
+    if (name === '') {
       alert('Please add a title');
     } else {
-      dispatch({ type: 'ADD_ITEM', payload: state.todoTitle });
+      dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name } });
+      setName('');
     }
-
-    state.todoTitle = '';
   }
 
   return (
@@ -17,8 +21,8 @@ function Form({ state, dispatch }) {
       <input
         type="text"
         placeholder="title..."
-        value={state.todoTitle}
-        onChange={(e) => dispatch({ type: 'query', payload: e.target.value })}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
       <button type="submit">Add</button>
     </form>
