@@ -1,9 +1,17 @@
-function Buttons() {
+function Buttons({ data, handleClick, activeTab }) {
   return (
     <div className="button-container">
-      <button>Spiders</button>
-      <button>Eagles</button>
-      <button>Horses</button>
+      {data.map((item, index) => {
+        return (
+          <button
+            key={item.id}
+            onClick={() => handleClick(index)}
+            style={index === activeTab ? { border: '2px dotted white' } : {}}
+          >
+            {item.button}
+          </button>
+        );
+      })}
     </div>
   );
 }
