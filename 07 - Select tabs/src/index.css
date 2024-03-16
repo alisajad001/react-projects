@@ -5,6 +5,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Header */
 .header {
   background-color: #4e3cee;
   height: 10rem;
@@ -14,14 +15,17 @@
   align-items: center;
   gap: 1em;
   border-bottom: 5px solid #f76969;
+  text-align: center;
 }
 
 .header h1 {
   color: white;
   font-weight: 500;
+  font-size: 1.5em;
   text-transform: uppercase;
 }
 
+/* Buttons Container */
 .button-container {
   display: flex;
   gap: 0.5em;
@@ -41,4 +45,27 @@
 .button-container button:hover {
   background-color: rgb(255, 145, 0);
   border: 2px dotted white;
+}
+
+/* Tabs info container */
+.tabs-info-container {
+  max-width: 450px;
+  width: calc(100vw - 2em);
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.tabs-info-container h2 {
+  margin-bottom: 0.5em;
+}
+
+.tabs-info-container p {
+  opacity: 0.7;
+}
+
+.tabs-info-container img {
+  margin-top: 2em;
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
 }
