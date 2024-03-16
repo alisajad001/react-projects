@@ -1,11 +1,11 @@
 import Buttons from './Buttons';
 
-function Header() {
+function Header({ children }) {
   return (
     <header className="header">
       <h1>Select Tabs Project</h1>
 
-      <Buttons />
+      {children}
     </header>
   );
 }
