@@ -1,20 +1,22 @@
-function RenderTabInfo() {
+function RenderTabInfo({ data, activeTab }) {
   return (
     <section className="tabs-info-container">
-      <h2>Spiders</h2>
+      {data.map((item, index) => {
+        return (
+          <div
+            key={item.id}
+            style={
+              index === activeTab ? { display: 'block' } : { display: 'none' }
+            }
+          >
+            <h2>{item.name}</h2>
 
-      <p>
-        Spiders Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Corrupti rem nobis voluptate quo? Explicabo modi saepe labore tempore
-        molestias aut et fugit quisquam!
-      </p>
-
-      <img
-        src="https://media.australian.museum/media/dd/images/Wolf_spider_-__Allocosa_obscuroides.width-800.b29a27b.jpg"
-        alt=""
-        width={200}
-        height={200}
-      />
+            {item.paragraphs.map((p, ind) => {
+              return <p key={ind}>- {p}</p>;
+            })}
+          </div>
+        );
+      })}
     </section>
   );
 }
