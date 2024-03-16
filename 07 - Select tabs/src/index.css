@@ -4,3 +4,20 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.header {
+  background-color: #4e3cee;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  border-bottom: 5px solid #f76969;
+}
+
+.header h1 {
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+}
