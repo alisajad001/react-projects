@@ -2,32 +2,34 @@ import { useReducer } from 'react';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 
-const initialState = {
-  todoTitle: '',
-  todos: [],
+// Actions
+export const ACTIONS = {
+  ADD_TODO: 'add-todo',
+  REMOVE_TODO: 'remove-todo',
+  RESET_ALL: 'reset-all',
 };
 
 // Todo App Reducer
-function reducer(state, action) {
+function reducer(todos, action) {
   switch (action.type) {
-    case 'query':
-      return { ...state, todoTitle: action.payload };
-    case 'ADD_ITEM':
-      return { ...state, todos: [...state.todos, action.payload] };
-    case 'REMOVE_ITEM':
-      return {
-        ...state,
-        todos: state.todos.filter((todo) => todo !== action.payload),
-      };
-    case 'RESET_LIST':
-      return (state = initialState);
+    case ACTIONS.ADD_TODO:
+      return [...todos, newTodo(action.payload.name)];
+    case ACTIONS.REMOVE_TODO:
+      return todos.filter((todo) => todo.id !== action.payload.id);
+    case ACTIONS.RESET_ALL:
+      return (todos = []);
     default:
       throw new Error('Action unknown');
   }
 }
 
+// New todo Object
+function newTodo(name) {
+  return { id: Date.now(), name: name };
+}
+
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [todos, dispatch] = useReducer(reducer, []);
 
   return (
     <div className="app">
@@ -35,15 +37,15 @@ function App() {
       <p>A simple Todo App using useReducer hook for state management</p>
 
       {/* Form */}
-      <Form state={state} dispatch={dispatch} />
+      <Form dispatch={dispatch} />
 
       {/* Todo List */}
-      <TodoList state={state} dispatch={dispatch} />
+      <TodoList todos={todos} dispatch={dispatch} />
 
       {/* Clear All Button */}
       <button
         className="clear-all-btn"
-        onClick={() => dispatch({ type: 'RESET_LIST' })}
+        onClick={() => dispatch({ type: ACTIONS.RESET_ALL })}
       >
         Clear All
       </button>
