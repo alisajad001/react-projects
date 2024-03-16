@@ -6,3 +6,4 @@
 - 04 - Scroll Indicator
 - 05 - Scroll to Top and Bottom
 - 06 - Simple Todo App - useReducer
+- 07 - Select tabs
