@@ -7,6 +7,6 @@
 - 05 - Scroll to Top and Bottom
 - 06 - Simple Todo App - useReducer
 - 07 - Select tabs
-
+- 08 - Shopping Cart - useReducer
 
 Designed and coded by Ali Sajad Ahmadi
