@@ -21,7 +21,7 @@ function ProductList() {
   }, []);
 
   return (
-    <div className="flex justify-center gap-2 flex-wrap mt-10">
+    <div className="container mx-auto flex justify-center gap-2 flex-wrap mt-10">
       {products?.map((product) => {
         return <Product product={product} />;
       })}
