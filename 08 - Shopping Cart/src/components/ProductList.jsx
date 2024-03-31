@@ -6,6 +6,7 @@ function ProductList() {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
 
+  // Fetch products data
   async function fetchData() {
     try {
       setIsLoading(true);
